@@ -1,0 +1,12 @@
+@import url('https://fonts.cdnfonts.com/css/futurama');
+
+:root {
+  font-family: Inter, system-ui, Avenir, 'Futurama Title Font', 'Futurama Title Font', 'Futurama Alien Alphabet One', 'Futurama Alien Alphabet Two';
+  line-height: 1.5;
+  font-weight: 400;
+  background: rgb(29, 29, 29);
+}
+
+p {
+  margin: 0;
+}
