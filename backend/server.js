@@ -1,11 +1,11 @@
 // app.js
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 5000;
 
 // Define a route
-app.get('/', (req, res) => {
-  res.send('Express app running');
+app.get('/api', (req, res) => {
+  res.json({ "users": ["one", "two", "three"] });
 });
 
 // Start the server
