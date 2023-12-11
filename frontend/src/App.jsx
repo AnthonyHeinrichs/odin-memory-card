@@ -7,6 +7,7 @@ import GamePage from '../pages/GamePage';
 
 function App() {
   const [characters, setCharacters] = useState();
+  const [userScores, setUserScores] = useState();
   const [gameStarted, setGameStarted] = useState(false);
   const characterData = useFuturamaData();
   const userData = useUserScoreData();
@@ -14,6 +15,7 @@ function App() {
   // Fetching our character data from a Futurama api
   useEffect(() => {
     setCharacters(characterData);
+    setUserScores(userData);
   }, [characterData]);
 
   // Creating our character array depending on user difficulty selection argument
