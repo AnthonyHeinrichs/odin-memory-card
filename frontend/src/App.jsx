@@ -2,21 +2,23 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import futuramaBackground from '/futurama-background.webm'
 import useFuturamaData from '../hooks/useFuturamaData';
+import useUserScoreData from '../hooks/useUserScoreData';
 import GamePage from '../pages/GamePage';
 
 function App() {
   const [characters, setCharacters] = useState();
   const [gameStarted, setGameStarted] = useState(false);
-  const data = useFuturamaData();
+  const characterData = useFuturamaData();
+  const userData = useUserScoreData();
 
   // Fetching our character data from a Futurama api
   useEffect(() => {
-    setCharacters(data);
-  }, [data]);
+    setCharacters(characterData);
+  }, [characterData]);
 
   // Creating our character array depending on user difficulty selection argument
   const createCharacterArray = (difficultyAmount) => {
-    setCharacters(data.slice(0, difficultyAmount).map(character => character));
+    setCharacters(characterData.slice(0, difficultyAmount).map(character => character));
   } 
 
   // Creating our character array and starting the game
@@ -39,6 +41,8 @@ function App() {
           </video>
         </>
       )}
+      <div className="high_scores">
+      </div>
       {gameStarted && characters.length > 0 && <GamePage characters={characters} />}
     </div>
   );
