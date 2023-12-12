@@ -16,10 +16,10 @@ function App() {
       const resp = await fetch('https://api.sampleapis.com/futurama/characters');
       const json = await resp.json();
       setCharacters(json);
-      // setIsLoading(false);
+      setIsLoading(false);
     } catch (error) {
       console.error('Error fetching Futurama data:', error);
-      // setIsLoading(false);
+      setIsLoading(false);
     }
   };
 
