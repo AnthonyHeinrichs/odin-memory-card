@@ -7,9 +7,9 @@ function LoadingPage() {
       <img src={benderLoading} alt="bender turtle" />
       <div className="loading_title">
         <p className='load_text'>Loading</p>
-        <p className='load_dot'>.</p>
-        <p className='load_dot'>.</p>
-        <p className='load_dot'>.</p>
+        <div className='load_dot'></div>
+        <div className='load_dot'></div>
+        <div className='load_dot'></div>
       </div>
     </div>
   );

@@ -9,24 +9,31 @@
 
 .loading_title {
   display: flex;
+  gap: 4px;
 }
 
 .load_text {
   color: white;
-  font-size: 36px;
+  font-size: 48px;
   margin: -48px 0px 0px 24px;
 }
 
 .load_dot {
-  color: white;
-  font-size: 36px;
-  margin: -48px 0px 0px 0px;
-  animation:scew-top 1s infinite alternate-reverse both;
+  background-color: white;
+  height: 8px;
+  width: 6px;
+  border-radius: 50%;
+  margin: -2px 0px 0px 0px;
+  animation:scew-top 800ms infinite alternate-reverse both;
 }
 
 @keyframes scew-top {
-  0% {transform: scale(1, 1) translate(0, 0);}
-  100% {transform: scale(1, 1.5) translate(-10%, -10%);}
+  from {
+    transform: scaleY(1.2);
+  }
+  to {
+    transform: scaleY(0.6);
+  }
 }
 
 .load_dot:nth-child(3) {
