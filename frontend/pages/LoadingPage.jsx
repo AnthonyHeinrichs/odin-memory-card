@@ -5,7 +5,12 @@ function LoadingPage() {
   return (
     <div className="loading_container">
       <img src={benderLoading} alt="bender turtle" />
-      <p className='load_text'>Loading...</p>
+      <div className="loading_title">
+        <p className='load_text'>Loading</p>
+        <p className='load_dot'>.</p>
+        <p className='load_dot'>.</p>
+        <p className='load_dot'>.</p>
+      </div>
     </div>
   );
 }

@@ -7,8 +7,33 @@
   width: 95vw;
 }
 
+.loading_title {
+  display: flex;
+}
+
 .load_text {
   color: white;
   font-size: 36px;
   margin: -48px 0px 0px 24px;
 }
+
+.load_dot {
+  color: white;
+  font-size: 36px;
+  margin: -48px 0px 0px 0px;
+  animation:scew-top 1s infinite alternate-reverse both;
+}
+
+@keyframes scew-top {
+  0% {transform: scale(1, 1) translate(0, 0);}
+  100% {transform: scale(1, 1.5) translate(-10%, -10%);}
+}
+
+.load_dot:nth-child(3) {
+  animation-delay: 200ms;
+}
+
+.load_dot:nth-child(4) {
+  animation-delay: 400ms;
+}
+
