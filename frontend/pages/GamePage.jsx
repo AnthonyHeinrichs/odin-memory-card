@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import './styles/GamePage.css';
 import CharacterCard from '../components/CharacterCard';
 import LoserPage from './LoserPage';
 import futuramaBackground from '/futurama-background.webm';
@@ -77,25 +78,23 @@ const GamePage = ({ characters }) => {
   }
 
   return (
-    <>
-      <div>
-        <div className='card_container'>
-          {characters.map((character) => (
-            <CharacterCard
-              key={character.id}
-              characterName={
-                character.name.last ? character.name.last : character.name.first
-              }
-              characterImage={character.images.main}
-              onClick={() => handleCharacterClick(character.id)}
-            />
-          ))}
-        </div>
-        <video className='background_video' autoPlay loop muted>
-          <source src={futuramaBackground} type='video/mp4' />
-        </video>
+    <div className='cards_container'>
+      <div className='cards'>
+        {characters.map((character) => (
+          <CharacterCard
+            key={character.id}
+            characterName={
+              character.name.last ? character.name.last : character.name.first
+            }
+            characterImage={character.images.main}
+            onClick={() => handleCharacterClick(character.id)}
+          />
+        ))}
       </div>
-    </>
+      <video className='background_video' autoPlay loop muted>
+        <source src={futuramaBackground} type='video/mp4' />
+      </video>
+    </div>
   );
 };
 

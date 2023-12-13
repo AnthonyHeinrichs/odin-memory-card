@@ -30,7 +30,8 @@ function App() {
 
   // Creating our character array depending on user difficulty selection argument
   const createCharacterArray = (difficultyAmount) => {
-    setCharacters(characters.slice(0, difficultyAmount).map(character => character));
+    const slicedCharacters = [...characters].slice(0, difficultyAmount);
+    setCharacters(slicedCharacters);
   } 
 
   // Creating our character array and starting the game
@@ -57,20 +58,22 @@ function App() {
       )}
       {!isLoading && (
         <>
-          <h1 className='title'>ODIN MEMORY CARD</h1>
-          <h2 className='title_description'>Inspired by Futurama</h2>
           {!gameStarted && (
             <>
-              <button onClick={() => handlePlayGame(4)}>Easy</button>
-              <button onClick={() => handlePlayGame(8)}>Medium</button>
-              <button onClick={() => handlePlayGame(12)}>Hard</button>
+              <div className="main_page">
+                <h1 className='title'>ODIN MEMORY CARD</h1>
+                <h2 className='title_description'>Inspired by Futurama</h2>
+                <div>
+                  <button onClick={() => handlePlayGame(4)}>Easy</button>
+                  <button onClick={() => handlePlayGame(8)}>Medium</button>
+                  <button onClick={() => handlePlayGame(12)}>Hard</button>
+                </div>
+              </div>
               <video className='background_video' autoPlay loop muted>
                 <source src={futuramaBackground} type='video/mp4' />
               </video>
             </>
           )}
-          <div className="high_scores">
-          </div>
           {gameStarted && characters.length > 0 && <GamePage characters={characters} />}
         </>
       )}

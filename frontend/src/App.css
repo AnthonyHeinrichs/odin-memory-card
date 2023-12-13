@@ -8,54 +8,23 @@
   position: fixed;
 }
 
+.main_page {
+  height: 95vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .title {
   font-family: 'Futurama Title Font';
+  text-align: center;
   color: rgb(123, 39, 179);
 }
 
 .title_description {
   font-family: 'Futurama Alien Alphabet One';
+  text-align: center;
   color: white;
-}
-
-.cards {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.card_container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 600px;
-}
-
-.character_container {
-  position: relative;
-  flex: 1 0 21%;
-  margin: 12px;
-  width: 200px;
-  height: 232px;
-  background-color: rgba(255, 255, 255, 0.75);
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.character_image {
-  height: 200px;
-  object-fit: contain;
-  transition: transform 0.2s;
-}
-
-.character_container:hover .character_image {
-  transform: scale(1.1) rotate(-5deg);
-}
-
-.character_name {
-  color: white;
-  background: hsla(0, 0%, 20%, 0.90);
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  left: 0;
 }
