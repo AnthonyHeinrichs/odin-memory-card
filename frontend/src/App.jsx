@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import futuramaBackground from '/futurama-background.webm';
+import gameTitle from '/game-title.png';
 import useUserScoreData from '../hooks/useUserScoreData';
 import LoadingPage from '../pages/LoadingPage';
 import GamePage from '../pages/GamePage';
@@ -61,17 +61,14 @@ function App() {
           {!gameStarted && (
             <>
               <div className="main_page">
-                <h1 className='title'>ODIN MEMORY CARD</h1>
-                <h2 className='title_description'>Inspired by Futurama</h2>
-                <div>
-                  <button onClick={() => handlePlayGame(4)}>Easy</button>
-                  <button onClick={() => handlePlayGame(8)}>Medium</button>
-                  <button onClick={() => handlePlayGame(12)}>Hard</button>
+                <img src={gameTitle} alt="futurama title" className='game_title_img'/>
+                <h2 className='title_description'>Memory Game</h2>
+                <div className='difficulty_selection_btns'>
+                  <button className='difficulty_btn' onClick={() => handlePlayGame(4)}>Easy</button>
+                  <button className='difficulty_btn' onClick={() => handlePlayGame(8)}>Medium</button>
+                  <button className='difficulty_btn' onClick={() => handlePlayGame(12)}>Hard</button>
                 </div>
               </div>
-              <video className='background_video' autoPlay loop muted>
-                <source src={futuramaBackground} type='video/mp4' />
-              </video>
             </>
           )}
           {gameStarted && characters.length > 0 && <GamePage characters={characters} />}

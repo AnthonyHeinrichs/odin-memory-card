@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import './styles/GamePage.css';
 import CharacterCard from '../components/CharacterCard';
 import LoserPage from './LoserPage';
-import futuramaBackground from '/futurama-background.webm';
+import futuramaGameBackground from '/futurama-game-background.webm';
 
 const GamePage = ({ characters }) => {
   const [selectedCharacters, setSelectedCharacters] = useState([]);
@@ -92,7 +92,7 @@ const GamePage = ({ characters }) => {
         ))}
       </div>
       <video className='background_video' autoPlay loop muted>
-        <source src={futuramaBackground} type='video/mp4' />
+        <source src={futuramaGameBackground} type='video/mp4' />
       </video>
     </div>
   );

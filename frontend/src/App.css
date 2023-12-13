@@ -13,18 +13,54 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
-.title {
-  font-family: 'Futurama Title Font';
-  text-align: center;
-  color: rgb(123, 39, 179);
+.game_title_img {
+  max-width: 800px;
+  width: 75vw;
+  margin-top: 62px;
+  animation: grow 2s alternate-reverse infinite;
+}
+
+.difficulty_selection_btns {
+  display: flex;
+  gap: 8px;
 }
 
 .title_description {
-  font-family: 'Futurama Alien Alphabet One';
+  font-family: 'Nunito';
+  font-weight: 900;
+  font-size: calc(2vw + 18px);
+  margin: -12px 0px 24px 0px;
   text-align: center;
+  color: #140033;
+}
+
+@keyframes grow {
+  from {
+      transform: scale(1);
+  }
+  to {
+      transform: scale(1.05);
+  }
+}
+
+.difficulty_btn {
+  font-family: 'Nunito';
   color: white;
+  background: #140033;
+  font-size: calc(0.5vw + 8px);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px;
+  width: calc(3vw + 62px);
+  min-width: 72px;
+  border-radius: 5px;
+  border: none;
+}
+
+.difficulty_btn:hover {
+  background: #100027ce;
+  transform: scale(1.05);
 }
