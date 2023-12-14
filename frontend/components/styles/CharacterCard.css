@@ -1,0 +1,55 @@
+.card_container {
+  border: solid black;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  border-radius: 24px;
+  padding: 12px;
+  margin: 12px;
+  cursor: pointer;
+}
+
+.character_container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid black;
+  width: 195px;
+  border-radius: 24px;
+  background: linear-gradient(321deg, rgba(160,41,218,1) 0%, rgba(26,61,147,1) 80%);
+}
+
+.character_quote {
+  text-align: center;
+  color: white;
+  font-size: 12px;
+  padding: 12px;
+  margin-bottom: -4px;
+  background-color: black;
+  border-radius: 24px;
+  max-width: 195px;
+}
+
+.character_image {
+  height: 200px;
+  object-fit: contain;
+  transition: transform 0.2s;
+}
+
+.character_container:hover .character_image {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.character_name {
+  color: white;
+  text-align: center;
+  margin-top: -12px;
+  background: black;
+  padding: 6px 12px 6px 12px;
+  border-radius: 8px;
+}
