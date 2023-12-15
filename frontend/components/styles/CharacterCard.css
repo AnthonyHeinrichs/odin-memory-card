@@ -1,15 +1,41 @@
-.card_container {
+.card_perspective {
+  perspective: 1500px;
+}
+
+.card {
   border: solid black;
   background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
   width: 200px;
+  height: 275px;
   border-radius: 24px;
   padding: 12px;
   margin: 12px;
-  cursor: pointer;
+  cursor: pointer; 
+
+  transition-duration: 300ms;
+  transition-property: transform, box-shadow;
+  transition-timing-function: ease-out;
+  transform: rotate3d(0);
+}
+
+.card:hover {
+  transition-duration: 150ms;
+  box-shadow: 0 5px 20px 5px #00000044;
+}
+
+.card .glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+
+  background-image: radial-gradient(circle at 50% -20%, #ffffff22, #0000000f);
 }
 
 .character_container {
@@ -41,15 +67,12 @@
   transition: transform 0.2s;
 }
 
-.character_container:hover .character_image {
-  transform: scale(1.1) rotate(-5deg);
-}
 
 .character_name {
   color: white;
   text-align: center;
   margin-top: -12px;
   background: black;
-  padding: 6px 12px 6px 12px;
+  padding: 0px 12px 0px 12px;
   border-radius: 8px;
 }

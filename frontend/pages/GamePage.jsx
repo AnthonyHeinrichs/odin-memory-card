@@ -1,8 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import './styles/GamePage.css';
 import CharacterCard from '../components/CharacterCard';
-import LoserPage from './LoserPage';
-import futuramaGameBackground from '/futurama-game-background.webm';
+import ResultPage from './ResultPage';
 
 const GamePage = ({ characters }) => {
   const [selectedCharacters, setSelectedCharacters] = useState([]);
@@ -66,15 +65,16 @@ const GamePage = ({ characters }) => {
 
   // Returning loser page if user lost
   if (userResult === 'loser') {
-    return <LoserPage />;
+    return <ResultPage result={userResult} />;
   }
 
   // Returning our winner page if user own
   if (userResult === 'winner') {
     const endTime = Date.now();
     const timeTaken = endTime - startTime;
+    const timeFormatted = formatTime(timeTaken);
 
-    return <h1>You win! It took you {formatTime(timeTaken)} seconds</h1>;
+    return <ResultPage result={userResult} timeTaken={timeFormatted} />
   }
 
   return (
@@ -91,9 +91,6 @@ const GamePage = ({ characters }) => {
           />
         ))}
       </div>
-      <video className='background_video' autoPlay loop muted>
-        <source src={futuramaGameBackground} type='video/mp4' />
-      </video>
     </div>
   );
 };

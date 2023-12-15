@@ -9,6 +9,10 @@
   background: rgb(253, 235, 235);
 }
 
+body {
+  height: 100%;
+}
+
 p {
   margin: 0;
   font-weight: 600;
