@@ -1,0 +1,25 @@
+.scoreboard_title {
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  color: white;
+}
+
+.top_ten > *, .bottom_ten > * {
+}
+
+.score {
+  display: flex;
+  gap: 24px;
+}
+
+.number {
+  width: 18px;
+}

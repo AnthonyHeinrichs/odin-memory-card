@@ -1,5 +1,6 @@
 import './styles/ResultPage.css';
 import futuramaGameBackground from '/futurama-game-background.webm';
+import Scoreboard from '../components/Scoreboard';
 
 function ResultPage({result, timeTaken}) {
   if (result === 'loser') {
@@ -11,6 +12,7 @@ function ResultPage({result, timeTaken}) {
         <video className='background_video' autoPlay loop muted>
           <source src={futuramaGameBackground} type='video/mp4' />
         </video>
+        <Scoreboard />
       </>
     );
   }
@@ -24,6 +26,7 @@ function ResultPage({result, timeTaken}) {
       <video className='background_video' autoPlay loop muted>
         <source src={futuramaGameBackground} type='video/mp4' />
       </video>
+      <Scoreboard />
     </>
   );
 }

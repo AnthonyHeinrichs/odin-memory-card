@@ -9,8 +9,8 @@
 }
 
 .loser_text_container, .winner_text_container {
-  height: 95vh;
   width: 100%;
+  margin-top: 62px;
   color: white;
   display: flex;
   flex-direction: column;
