@@ -6,31 +6,35 @@ const Scoreboard = ({scores}) => {
   const bottomTen = testArray.slice(10, 20);
 
   return (
-    <>
-      <h2 className="scoreboard_title">Scoreboard</h2>
-      <div className="scoreboard">
-        <div className="top_ten">
-          {topTen.map((name, index) => {
-             return (
-              <div className="score" key={index}>
-                <div className='number'>{index + 1}</div>
-                <div>{name}</div>
-              </div>
-             )
-          })}
-        </div>
-        <div className="bottom_ten">
-          {bottomTen.map((name, index) => {
-             return (
-              <div className="score" key={index}>
-                <div className='number'>{index + 11}</div>
-                <div>{name}</div>
-              </div>
-             )
-          })}
+    <div className='scoreboard'>
+      <div className="scoreboard_content">
+        <h2 className="scoreboard_title">Scoreboard</h2>
+        <div className="scores_container">
+          <div className="top_ten">
+            {topTen.map((name, index) => {
+              return (
+                <div className="score" key={index}>
+                  <div className='number'>{index + 1}.</div>
+                  <div className='name'>{name}</div>
+                  <div className="time">2.48s</div>
+                </div>
+              )
+            })}
+          </div>
+          <div className="bottom_ten">
+            {bottomTen.map((name, index) => {
+              return (
+                <div className="score" key={index}>
+                  <div className='number'>{index + 11}.</div>
+                  <div className='name'>{name}</div>
+                  <div className="time">2.48s</div>
+                </div>
+              )
+            })}
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
