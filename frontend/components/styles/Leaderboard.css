@@ -23,6 +23,7 @@
 .scores_container {
   width: 100%;
   font-weight: 600;
+  margin-bottom: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,7 +32,7 @@
 }
 
 .top_ten, .bottom_ten {
-  margin: 12px;
+  margin: 0px 12px 0px 12px;
 }
 
 .score {

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import './styles/CharacterCard.css';
 
-const CharacterCard = ({characterName, characterImage, onClick}) => {
+const CharacterCard = ({characterName, characterImage, cardFlipped, onClick}) => {
   let bounds;
   const inputRef = useRef();
   const glowRef = useRef();
@@ -36,27 +36,34 @@ const CharacterCard = ({characterName, characterImage, onClick}) => {
       )
     `;
   };
+  
   const removeListener = (e) => {
     inputRef.current.style.transform = '';
     inputRef.current.style.background = '';
   };
+
   useEffect(() => {});
   return (
-    <div className="card_perspective">
-      <div
-        ref={inputRef}
-        className="card"
-        onMouseLeave={removeListener}
-        onMouseMove={rotateToMouse}
-        onClick={() => onClick()}
-      >
-        <div className="character_container">
-          <p className="character_name">{characterName}</p>
-          <img className="character_image" src={characterImage} alt="characterName" />
-          <p className="character_quote">"People said I was dumb, but I proved them."</p>
+    <div className='card_perspective'>
+      {cardFlipped ? (
+        <div className="card card_back">
         </div>
-        <div ref={glowRef} className="glow" />
-      </div>
+      ) : (
+        <div
+          ref={inputRef}
+          className="card card_front"
+          onMouseLeave={removeListener}
+          onMouseMove={rotateToMouse}
+          onClick={() => onClick()}
+        >
+          <div className="character_container">
+            <p className="character_name">{characterName}</p>
+            <img className="character_image" src={characterImage} alt="characterName" />
+            <p className="character_quote">"People said I was dumb, but I proved them."</p>
+          </div>
+          <div ref={glowRef} className="glow" />
+        </div>
+      )}
     </div>
   );
 }

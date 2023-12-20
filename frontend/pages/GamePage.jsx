@@ -7,6 +7,7 @@ const GamePage = ({ characters }) => {
   const [selectedCharacters, setSelectedCharacters] = useState([]);
   const [userResult, setUserResult] = useState('');
   const [startTime, setStartTime] = useState(null);
+  const [mixing, setMixing] = useState(false);
 
   // Shuffling the characters array passed
   const shuffle = useCallback((array) => {
@@ -32,6 +33,10 @@ const GamePage = ({ characters }) => {
   // Setting initial load
   useEffect(() => {
     shuffle(characters);
+    
+    setTimeout(() => {
+      setMixing(false);
+    }, 500);
 
     if (!startTime) {
       setStartTime(Date.now());
@@ -52,6 +57,8 @@ const GamePage = ({ characters }) => {
 
   // Handling our user click and checking if the user lost, updating our selected array
   const handleCharacterClick = (characterId) => {
+    setMixing(true);
+
     setSelectedCharacters((prevSelected) => {
       if (prevSelected.includes(characterId)) {
         setUserResult('loser');
@@ -87,6 +94,7 @@ const GamePage = ({ characters }) => {
               character.name.last ? character.name.last : character.name.first
             }
             characterImage={character.images.main}
+            cardFlipped={mixing}
             onClick={() => handleCharacterClick(character.id)}
           />
         ))}
