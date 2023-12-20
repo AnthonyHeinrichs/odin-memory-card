@@ -6,7 +6,6 @@ import ResultPage from './ResultPage';
 const GamePage = ({ characters }) => {
   const [selectedCharacters, setSelectedCharacters] = useState([]);
   const [userResult, setUserResult] = useState('');
-  const [startTime, setStartTime] = useState(null);
   const [mixing, setMixing] = useState(false);
 
   // Shuffling the characters array passed
@@ -38,22 +37,10 @@ const GamePage = ({ characters }) => {
       setMixing(false);
     }, 500);
 
-    if (!startTime) {
-      setStartTime(Date.now());
-    }
-
     if (selectedCharacters.length === characters.length) {
       setUserResult('winner');
     }
-  }, [selectedCharacters, characters, shuffle, startTime]);
-
-  // Formats our counter to 'seconds.milliseconds' and returns it
-  const formatTime = (milliseconds) => {
-    const seconds = Math.floor(milliseconds / 1000);
-    const remainingMilliseconds = milliseconds % 1000;
-
-    return `${seconds}.${remainingMilliseconds}`;
-  };
+  }, [selectedCharacters, characters, shuffle]);
 
   // Handling our user click and checking if the user lost, updating our selected array
   const handleCharacterClick = (characterId) => {
@@ -77,11 +64,7 @@ const GamePage = ({ characters }) => {
 
   // Returning our winner page if user own
   if (userResult === 'winner') {
-    const endTime = Date.now();
-    const timeTaken = endTime - startTime;
-    const timeFormatted = formatTime(timeTaken);
-
-    return <ResultPage result={userResult} timeTaken={timeFormatted} />
+    return <ResultPage result={userResult} />
   }
 
   return (
