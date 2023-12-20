@@ -88,15 +88,17 @@ const GamePage = ({ characters }) => {
     <div className='cards_container'>
       <div className='cards'>
         {characters.map((character) => (
-          <CharacterCard
-            key={character.id}
-            characterName={
-              character.name.last ? character.name.last : character.name.first
-            }
-            characterImage={character.images.main}
-            cardFlipped={mixing}
-            onClick={() => handleCharacterClick(character.id)}
-          />
+          <div className={`card_flip_container ${mixing ? 'mixing' : ''}`}>
+            <CharacterCard
+              key={character.id}
+              characterName={
+                character.name.last ? character.name.last : character.name.first
+              }
+              characterImage={character.images.main}
+              cardFlipped={mixing}
+              onClick={() => handleCharacterClick(character.id)}
+            />
+          </div>
         ))}
       </div>
     </div>

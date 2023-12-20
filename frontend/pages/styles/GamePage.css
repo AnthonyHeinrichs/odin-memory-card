@@ -10,6 +10,14 @@
   display: grid;
 }
 
+.card_flip_container {
+  transition: transform 200ms ease-in-out;
+}
+
+.card_flip_container.mixing {
+  transform: rotateY(180deg);
+}
+
 @media (max-width: 480px) {
   .cards {
     grid-template-columns: 1fr;
