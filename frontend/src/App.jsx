@@ -6,8 +6,10 @@ import LoadingPage from '../pages/LoadingPage';
 import GamePage from '../pages/GamePage';
 
 function App() {
+  const [originalCharacters, setOriginalCharacters] = useState([]);
   const [characters, setCharacters] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [hardWins, setHardWins] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
 
   // Fetching our character data from a Futurama api
@@ -15,7 +17,7 @@ function App() {
     try {
       const resp = await fetch('https://api.sampleapis.com/futurama/characters');
       const json = await resp.json();
-      setCharacters(json);
+      setOriginalCharacters(json);
       setIsLoading(false);
     } catch (error) {
       console.error('Error fetching Futurama data:', error);
@@ -30,18 +32,19 @@ function App() {
 
   // Creating our character array depending on user difficulty selection argument
   const createCharacterArray = (difficultyAmount) => {
-    const slicedCharacters = [...characters].slice(0, difficultyAmount);
+    const slicedCharacters = [...originalCharacters].slice(0, difficultyAmount);
     setCharacters(slicedCharacters);
   } 
 
   // Creating our character array and starting the game
   const handlePlayGame = (difficultyAmount) => {
+
     if (isLoading) {
       // Data is still loading, wait for it to finish
       return;
     }
 
-    if (!characters.length) {
+    if (!originalCharacters.length) {
       // Fetch data if it hasn't been loaded yet
       fetchFuturamaData();
     } else {
@@ -49,6 +52,16 @@ function App() {
       createCharacterArray(difficultyAmount);
       setGameStarted(true);
     }
+    
+  }
+
+  const handleGoBack = () => {
+    // Navigate back to the main page
+    setGameStarted(false);
+  };
+
+  const addWin = () => {
+    return setHardWins(prevWins => prevWins + 1);
   }
 
   return (
@@ -61,6 +74,7 @@ function App() {
           {!gameStarted && (
             <>
               <div className="main_page">
+                <p>Hard Wins = {hardWins}</p>
                 <img src={gameTitle} alt="futurama title" className='game_title_img'/>
                 <h2 className='title_description'>Memory Game</h2>
                 <div className='difficulty_selection_btns'>
@@ -71,7 +85,7 @@ function App() {
               </div>
             </>
           )}
-          {gameStarted && characters.length > 0 && <GamePage characters={characters} />}
+          {gameStarted && characters.length > 0 && <GamePage characters={characters} wins={hardWins} addWin={addWin} handleGoBack={handleGoBack}/>}
         </>
       )}
     </div>

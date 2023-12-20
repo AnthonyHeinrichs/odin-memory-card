@@ -3,7 +3,7 @@ import './styles/GamePage.css';
 import CharacterCard from '../components/CharacterCard';
 import ResultPage from './ResultPage';
 
-const GamePage = ({ characters }) => {
+const GamePage = ({ characters, wins, addWin, handleGoBack }) => {
   const [selectedCharacters, setSelectedCharacters] = useState([]);
   const [userResult, setUserResult] = useState('');
   const [mixing, setMixing] = useState(false);
@@ -39,6 +39,9 @@ const GamePage = ({ characters }) => {
 
     if (selectedCharacters.length === characters.length) {
       setUserResult('winner');
+      if (selectedCharacters.length === 12 ) {
+        addWin();
+      }
     }
   }, [selectedCharacters, characters, shuffle]);
 
@@ -57,21 +60,16 @@ const GamePage = ({ characters }) => {
     });
   };
 
-  // Returning loser page if user lost
-  if (userResult === 'loser') {
-    return <ResultPage result={userResult} />;
-  }
-
-  // Returning our winner page if user own
-  if (userResult === 'winner') {
-    return <ResultPage result={userResult} />
+  // Returning results page if user wins or loses
+  if (userResult === 'loser' || userResult === 'winner') {
+    return <ResultPage result={userResult} wins={wins} handleGoBack={handleGoBack} />;
   }
 
   return (
     <div className='cards_container'>
       <div className='cards'>
         {characters.map((character) => (
-          <div className={`card_flip_container ${mixing ? 'mixing' : ''}`}>
+          <div key={character.id} className={`card_flip_container ${mixing ? 'mixing' : ''}`}>
             <CharacterCard
               key={character.id}
               characterName={
