@@ -3,7 +3,7 @@ import './styles/GamePage.css';
 import CharacterCard from '../components/CharacterCard';
 import ResultPage from './ResultPage';
 
-const GamePage = ({ characters, wins, addWin, handleGoBack }) => {
+const GamePage = ({ characters, addWin, handleGoBack }) => {
   const [selectedCharacters, setSelectedCharacters] = useState([]);
   const [userResult, setUserResult] = useState('');
   const [mixing, setMixing] = useState(false);
@@ -67,14 +67,11 @@ const GamePage = ({ characters, wins, addWin, handleGoBack }) => {
 
   // Returning results page if user wins or loses
   if (userResult === 'loser' || userResult === 'winner') {
-    return <ResultPage result={userResult} wins={wins} handleGoBack={handleGoBack} />;
+    return <ResultPage result={userResult} handleGoBack={handleGoBack} />;
   }
 
   return (
     <>
-      <div className="wins_container">
-        <p className="game_wins" >Hard win streak: {wins}</p>
-      </div>
       <div className='cards_container'>
         <div className='cards'>
           {characters.map((character) => (

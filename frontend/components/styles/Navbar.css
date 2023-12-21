@@ -1,0 +1,21 @@
+.navbar_container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.futurama_icon {
+  width: 120px;
+  cursor: pointer;
+}
+
+.game_wins {
+  margin-right: 24px;
+  margin-top: 12px;
+  width: 150px;
+  background: #e5e5e5;
+  border-radius: 10px;
+  font-family: 'Nunito';
+  padding: 5px 8px 5px 8px;
+}

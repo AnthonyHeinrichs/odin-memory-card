@@ -8,12 +8,26 @@
   position: fixed;
 }
 
-.loser_text_container, .winner_text_container {
+.loser_text_container, .winner_text_container, .again_btn_container {
   width: 100%;
-  margin-top: 62px;
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.again_btn {
+  margin-bottom: 24px;
+  font-family: 'Nunito';
+  color: white;
+  background: #140033;
+  font-size: calc(0.5vw + 8px);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px;
+  width: calc(3vw + 62px);
+  min-width: 72px;
+  border-radius: 5px;
+  border: none;
 }

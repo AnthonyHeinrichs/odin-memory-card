@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import gameTitle from '/game-title.png';
 import useUserScoreData from '../hooks/useUserScoreData';
+import Navbar from '../components/Navbar';
 import LoadingPage from '../pages/LoadingPage';
 import GamePage from '../pages/GamePage';
 
@@ -86,8 +87,8 @@ function App() {
         <>
           {!gameStarted && (
             <>
+              <Navbar wins={hardWins}  handleGoBack={handleGoBack} />
               <div className="main_page">
-                <p className="wins" >Hard win streak: {hardWins}</p>
                 <img src={gameTitle} alt="futurama title" className='game_title_img'/>
                 <h2 className='title_description'>Memory Game</h2>
                 <div className='difficulty_selection_btns'>
@@ -98,7 +99,12 @@ function App() {
               </div>
             </>
           )}
-          {gameStarted && characters.length > 0 && <GamePage characters={characters} wins={hardWins} addWin={addWin} handleGoBack={handleGoBack}/>}
+          {gameStarted && characters.length > 0 && (
+            <>
+              <Navbar wins={hardWins}  handleGoBack={handleGoBack} />
+              <GamePage characters={characters} addWin={addWin} handleGoBack={handleGoBack}/>
+            </>
+          )}
         </>
       )}
     </div>
