@@ -1,0 +1,28 @@
+.footer_container {
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  bottom: 0;
+  width: 99.5%;
+}
+
+.help {
+  text-align: center;
+  margin-right: 24px;
+  margin-bottom: 24px;
+}
+
+.help_img {
+  width: 48px;
+  height: auto;
+  border-radius: 50%;
+  border: solid black;
+  cursor: pointer;
+}
+
+.help_text {
+  font-family: 'Nunito';
+  font-weight: 900;
+  font-size: calc(0.25vw + 12px);
+  color: #140033;
+}

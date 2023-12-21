@@ -5,6 +5,7 @@ import useUserScoreData from '../hooks/useUserScoreData';
 import Navbar from '../components/Navbar';
 import LoadingPage from '../pages/LoadingPage';
 import GamePage from '../pages/GamePage';
+import Footer from '../components/Footer';
 
 function App() {
   // Grab our hard win numbers if they exist and update state
@@ -97,12 +98,14 @@ function App() {
                   <button className='difficulty_btn' onClick={() => handlePlayGame(12)}>Hard</button>
                 </div>
               </div>
+              <Footer />
             </>
           )}
           {gameStarted && characters.length > 0 && (
             <>
               <Navbar wins={hardWins}  handleGoBack={handleGoBack} />
               <GamePage characters={characters} addWin={addWin} handleGoBack={handleGoBack}/>
+              <Footer />
             </>
           )}
         </>

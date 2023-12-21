@@ -7,6 +7,8 @@
   line-height: 1.5;
   font-weight: 400;
   background: rgb(253, 235, 235);
+  position: relative;
+  min-height: 100vh;
 }
 
 body {
