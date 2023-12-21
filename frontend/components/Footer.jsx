@@ -6,23 +6,22 @@ function Footer() {
   const [showHelp, setShowHelp] = useState(false);
 
   const showInstructions = () => {
-    setShowHelp(prevState => !prevState);
-  }
+    setShowHelp((prevState) => !prevState);
+  };
 
   return (
     <div className="footer_container">
-      {showHelp && (
-        <div className='help_box'>
-          <div className="help_title">
-            Instructions:
-          </div>
-          <ul>
-            <li>Goal: Click all the cards without clicking the same one twice.</li>
-            <li>How to play: select a difficulty - easy has 12 cards, medium 8, and hard 12.</li>
-            <li>Click on the top left icon at anytime to go back.</li>
-          </ul>
+      <div className={`help_box ${showHelp ? '' : 'hide'}`}>
+        <div className="help_title">
+          Instructions:
+          <button className='close_btn' onClick={showInstructions}>Close</button>
         </div>
-      )}
+        <ul>
+          <li><span className='bold'>Choose a difficulty level: </span>easy, medium, or hard.</li>
+          <li><span className='bold'>How to play: </span>Click on each character, but be careful not to click on the same character twice.</li>
+          <li>Click on the top left icon at any time to go back.</li>
+        </ul>
+      </div>
       <div className="help">
         <img className="help_img" src={UnsureFry} alt="help" onClick={showInstructions} />
         <div className="help_text">

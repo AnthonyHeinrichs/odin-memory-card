@@ -75,7 +75,7 @@ const GamePage = ({ characters, addWin, handleGoBack }) => {
       <div className='cards_container'>
         <div className='cards'>
           {characters.map((character) => (
-            <div key={character.id} className={`card_flip_container ${mixing ? 'mixing' : ''}`}>
+            <div key={character.id} className={`card_flip_container ${mixing && 'mixing'}`}>
               <CharacterCard
                 key={character.id}
                 characterName={
