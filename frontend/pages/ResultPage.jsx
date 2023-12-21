@@ -7,7 +7,7 @@ function ResultPage({result, wins, handleGoBack}) {
     <>
       <div className="loser_text_container">
         <h1>You {result === 'winner'  ? 'win' : 'lose'}!</h1>
-        <p>Wins = {wins}</p>
+        <p>Hard Wins: {wins}</p>
       </div>
       <video className='background_video' autoPlay loop muted>
         <source src={futuramaGameBackground} type='video/mp4' />

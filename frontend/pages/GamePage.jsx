@@ -40,7 +40,7 @@ const GamePage = ({ characters, wins, addWin, handleGoBack }) => {
     if (selectedCharacters.length === characters.length) {
       setUserResult('winner');
       if (selectedCharacters.length === 12 ) {
-        addWin();
+        addWin(true);
       }
     }
   }, [selectedCharacters, characters, shuffle]);
@@ -51,6 +51,11 @@ const GamePage = ({ characters, wins, addWin, handleGoBack }) => {
 
     setSelectedCharacters((prevSelected) => {
       if (prevSelected.includes(characterId)) {
+        
+        if (characters.length === 12 ) {
+          addWin(false);
+        }
+
         setUserResult('loser');
         setSelectedCharacters([]);
         return;
@@ -66,23 +71,28 @@ const GamePage = ({ characters, wins, addWin, handleGoBack }) => {
   }
 
   return (
-    <div className='cards_container'>
-      <div className='cards'>
-        {characters.map((character) => (
-          <div key={character.id} className={`card_flip_container ${mixing ? 'mixing' : ''}`}>
-            <CharacterCard
-              key={character.id}
-              characterName={
-                character.name.last ? character.name.last : character.name.first
-              }
-              characterImage={character.images.main}
-              cardFlipped={mixing}
-              onClick={() => handleCharacterClick(character.id)}
-            />
-          </div>
-        ))}
+    <>
+      <div className="wins_container">
+        <p className="game_wins" >Hard win streak: {wins}</p>
       </div>
-    </div>
+      <div className='cards_container'>
+        <div className='cards'>
+          {characters.map((character) => (
+            <div key={character.id} className={`card_flip_container ${mixing ? 'mixing' : ''}`}>
+              <CharacterCard
+                key={character.id}
+                characterName={
+                  character.name.last ? character.name.last : character.name.first
+                }
+                characterImage={character.images.main}
+                cardFlipped={mixing}
+                onClick={() => handleCharacterClick(character.id)}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
   );
 };
 

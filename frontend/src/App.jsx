@@ -6,10 +6,13 @@ import LoadingPage from '../pages/LoadingPage';
 import GamePage from '../pages/GamePage';
 
 function App() {
+  // Grab our hard win numbers if they exist and update state
+  const storedWins = JSON.parse(localStorage.getItem('wins'))
+
   const [originalCharacters, setOriginalCharacters] = useState([]);
   const [characters, setCharacters] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [hardWins, setHardWins] = useState(0);
+  const [hardWins, setHardWins] = useState(storedWins);
   const [gameStarted, setGameStarted] = useState(false);
 
   // Fetching our character data from a Futurama api
@@ -29,6 +32,11 @@ function App() {
     // Fetch data when the component mounts
     fetchFuturamaData();
   }, []);
+
+  useEffect(() => {
+    // Saving our wins to local storage in case user refreshes app
+    localStorage.setItem('wins', JSON.stringify(hardWins))
+  }, [hardWins])
 
   // Creating our character array depending on user difficulty selection argument
   const createCharacterArray = (difficultyAmount) => {
@@ -60,8 +68,13 @@ function App() {
     setGameStarted(false);
   };
 
-  const addWin = () => {
-    return setHardWins(prevWins => prevWins + 1);
+  const addWin = (win) => {
+    if (win) {
+      setHardWins(prevWins => prevWins + 1);
+    } else {
+      setHardWins(0);
+    }
+    return
   }
 
   return (
@@ -74,7 +87,7 @@ function App() {
           {!gameStarted && (
             <>
               <div className="main_page">
-                <p>Hard Wins = {hardWins}</p>
+                <p className="wins" >Hard win streak: {hardWins}</p>
                 <img src={gameTitle} alt="futurama title" className='game_title_img'/>
                 <h2 className='title_description'>Memory Game</h2>
                 <div className='difficulty_selection_btns'>
