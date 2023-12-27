@@ -82,6 +82,7 @@ const GamePage = ({ characters, addWin, handleGoBack }) => {
                   character.name.last ? character.name.last : character.name.first
                 }
                 characterImage={character.images.main}
+                characterQuotes={character.sayings}
                 cardFlipped={mixing}
                 onClick={() => handleCharacterClick(character.id)}
               />

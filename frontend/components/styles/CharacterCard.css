@@ -10,8 +10,8 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 175px;
-  height: 250px;
+  width: 185px;
+  height: 275px;
   border-radius: 24px;
   padding: 12px;
   margin: 12px;
@@ -45,17 +45,19 @@
   justify-content: center;
   align-items: center;
   border: solid black;
-  width: 170px;
+  width: 175px;
+  min-height: 240px;
   border-radius: 24px;
   background: linear-gradient(321deg, rgba(160,41,218,1) 0%, rgba(26,61,147,1) 80%);
 }
 
 .character_quote {
+  position: absolute;
+  bottom: -20px;
   text-align: center;
   color: white;
   font-size: 12px;
-  padding: 12px;
-  margin-bottom: -4px;
+  padding: 8px;
   background-color: black;
   border-radius: 24px;
   max-width: 195px;
@@ -69,6 +71,8 @@
 
 
 .character_name {
+  position: absolute;
+  top: 0;
   color: white;
   text-align: center;
   margin-top: -12px;

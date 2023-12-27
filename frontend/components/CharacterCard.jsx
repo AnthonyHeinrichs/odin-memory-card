@@ -1,7 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import './styles/CharacterCard.css';
 
-const CharacterCard = ({characterName, characterImage, cardFlipped, onClick}) => {
+const CharacterCard = ({characterName, characterImage, characterQuotes, cardFlipped, onClick}) => {
+  const shortQuotes = characterQuotes.filter(characterQuotes => characterQuotes.length <= 50);
+  const randomCharacterQuote = shortQuotes[Math.floor(Math.random() * shortQuotes.length)];
+
   let bounds;
   const inputRef = useRef();
   const glowRef = useRef();
@@ -64,7 +67,7 @@ const CharacterCard = ({characterName, characterImage, cardFlipped, onClick}) =>
           <div className="character_container">
             <p className="character_name">{characterName}</p>
             <img className="character_image" src={characterImage} alt="characterName" />
-            <p className="character_quote">"People said I was dumb, but I proved them."</p>
+            <p className="character_quote">"{randomCharacterQuote}"</p>
           </div>
           <div ref={glowRef} className="glow" />
         </div>
