@@ -1,12 +1,19 @@
 // app.js
 const express = require('express');
 const cors = require('cors');
+const mongoose = require("mongoose");
 const port = 5000;
 
 // Bringing in model(s)
 const Score = require("./models/score");
 
 const app = express();
+
+// Set up mongoose connection
+const mongoDb = process.env.MONGODB_URI;
+mongoose.connect(mongoDb);
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'mongo connection error'));
 
 // Enable CORS for all routes
 app.use(cors());
