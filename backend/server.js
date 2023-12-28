@@ -7,6 +7,9 @@ const port = 5000;
 // Bringing in model(s)
 const Score = require("./models/score");
 
+// Provide option to read from .env file
+require('dotenv').config()
+
 const app = express();
 
 // Set up mongoose connection
