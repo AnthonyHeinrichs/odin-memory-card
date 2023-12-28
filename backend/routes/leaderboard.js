@@ -1,4 +1,5 @@
-import { Router } from 'express';
+const { Router } = require('express');
+const Score = require('../models/score');
 
 const router = Router();
 
@@ -31,4 +32,4 @@ router.get('/scores', async (req, res) => {
   }
 });
 
-export default router;
+module.exports = router;

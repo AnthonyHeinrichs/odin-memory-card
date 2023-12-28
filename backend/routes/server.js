@@ -1,3 +1,3 @@
-import leaderboard from './leaderboard';
+const leaderboard = require('./leaderboard');
 
-export default leaderboard;
+module.exports = leaderboard;

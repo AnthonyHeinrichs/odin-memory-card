@@ -3,10 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require("mongoose");
 const port = 5000;
-import routes from './routes';
-
-// Bringing in model(s)
-const Score = require("./models/score");
+const routes = require('./routes/server');
 
 // Provide option to read from .env file
 require('dotenv').config()
@@ -14,7 +11,7 @@ require('dotenv').config()
 const app = express();
 
 // Bringing in route(s)
-app.use('/api/leaderboard', routes.leaderboard);
+app.use('/api/leaderboard', routes);
 
 // Set up mongoose connection
 const mongoDb = process.env.MONGODB_URI;
