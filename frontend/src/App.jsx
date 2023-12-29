@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import gameTitle from '/game-title.png';
-import useUserScoreData from '../hooks/useUserScoreData';
 import Navbar from '../components/Navbar';
 import LoadingPage from '../pages/LoadingPage';
 import GamePage from '../pages/GamePage';
@@ -12,6 +11,7 @@ function App() {
   const storedWins = JSON.parse(localStorage.getItem('wins'))
 
   const [originalCharacters, setOriginalCharacters] = useState([]);
+  const [leaderboardScores , setLeaderboardScores] = useState([]);
   const [characters, setCharacters] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hardWins, setHardWins] = useState(storedWins);
@@ -30,13 +30,31 @@ function App() {
     }
   };
 
+  // Fetching our leaderboard data from backend API
+  const fetchLeaderboardData = async () => {
+    
+    const apiKey = import.meta.env.VITE_API_KEY;
+
+    try {
+      const resp = await fetch('https://odin-memory-card-backend-2w5khurw3-anthonyheinrichs.vercel.app/api/leaderboard/scores', {
+        headers: {
+          'X-API-Key': apiKey,
+        },
+      });
+      const json = await resp.json();
+      setLeaderboardScores(json);
+    } catch (error) {
+      console.error('Error fetching highscore data:', error);
+    }
+  };
+
   useEffect(() => {
     // Fetch data when the component mounts
     fetchFuturamaData();
+    fetchLeaderboardData();
   }, []);
 
-  const scoreData = useUserScoreData();
-  console.log(scoreData);
+  console.log(leaderboardScores);
 
   useEffect(() => {
     // Saving our wins to local storage in case user refreshes app
