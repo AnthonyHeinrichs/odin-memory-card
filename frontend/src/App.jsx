@@ -35,6 +35,9 @@ function App() {
     fetchFuturamaData();
   }, []);
 
+  const scoreData = useUserScoreData();
+  console.log(scoreData);
+
   useEffect(() => {
     // Saving our wins to local storage in case user refreshes app
     localStorage.setItem('wins', JSON.stringify(hardWins))

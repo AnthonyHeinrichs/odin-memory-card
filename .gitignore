@@ -1,6 +1,9 @@
-# Ignore backend/node_modules
+# Ignore backend/node_modules and dotenv
 backend/node_modules/
 backend/.env
+
+# Ignore frontend dotenv
+frontend/.env
 
 # Logs
 frontend/logs
