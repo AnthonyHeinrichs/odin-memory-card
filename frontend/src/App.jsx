@@ -11,7 +11,7 @@ function App() {
   const storedWins = JSON.parse(localStorage.getItem('wins'))
 
   const [originalCharacters, setOriginalCharacters] = useState([]);
-  const [leaderboardScores , setLeaderboardScores] = useState([]);
+  const [leaderboardScores, setLeaderboardScores] = useState([]);
   const [characters, setCharacters] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hardWins, setHardWins] = useState(storedWins);
@@ -36,7 +36,7 @@ function App() {
     const apiKey = import.meta.env.VITE_API_KEY;
 
     try {
-      const resp = await fetch('https://odin-memory-card-backend-2w5khurw3-anthonyheinrichs.vercel.app/api/leaderboard/scores', {
+      const resp = await fetch('http://localhost:5000/api/leaderboard/scores', {
         headers: {
           'X-API-Key': apiKey,
         },
@@ -109,7 +109,7 @@ function App() {
         <>
           {!gameStarted && (
             <>
-              <Navbar wins={hardWins}  handleGoBack={handleGoBack} />
+              <Navbar wins={hardWins}  handleGoBack={handleGoBack} scores={leaderboardScores}/>
               <div className="main_page">
                 <img src={gameTitle} alt="futurama title" className='game_title_img'/>
                 <h2 className='title_description'>Memory Game</h2>

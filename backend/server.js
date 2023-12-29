@@ -10,13 +10,8 @@ require('dotenv').config()
 
 const app = express();
 
-// Enable CORS for frontend testing
-const corsOptions = {
-  origin: 'http://localhost:5173',
-  optionsSuccessStatus: 200, 
-};
-
-app.use(cors(corsOptions));
+// Enable CORS for all routes
+app.use(cors());
 
 // Bringing in route(s)
 app.use('/api/leaderboard', routes);
