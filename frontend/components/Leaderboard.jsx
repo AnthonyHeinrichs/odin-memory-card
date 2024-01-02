@@ -1,6 +1,6 @@
 import './styles/Leaderboard.css';
 
-const Leaderboard = ({ scores }) => {
+const Leaderboard = ({ scores, leaderboardVisibility }) => {
   const scoresArray = scores.scores || [];
 
   const sortedScores = scoresArray.sort((a, b) => b.score - a.score);
@@ -15,6 +15,7 @@ const Leaderboard = ({ scores }) => {
   return (
     <div className='leaderboard'>
       <div className="leaderboard_content">
+        <button className="leaderboard_close" onClick={() => leaderboardVisibility()}>X</button>
         <h2 className="leaderboard_title">Leaderboard</h2>
         <div className="scores_container">
           <div className="top_ten">

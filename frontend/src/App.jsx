@@ -102,6 +102,7 @@ function App() {
 
   return (
     <div>
+      <Navbar wins={hardWins}  handleGoBack={handleGoBack} scores={leaderboardScores}/>
       {isLoading && (
         <LoadingPage />
       )}
@@ -109,7 +110,6 @@ function App() {
         <>
           {!gameStarted && (
             <>
-              <Navbar wins={hardWins}  handleGoBack={handleGoBack} scores={leaderboardScores}/>
               <div className="main_page">
                 <img src={gameTitle} alt="futurama title" className='game_title_img'/>
                 <h2 className='title_description'>Memory Game</h2>
@@ -124,7 +124,6 @@ function App() {
           )}
           {gameStarted && characters.length > 0 && (
             <>
-              <Navbar wins={hardWins}  handleGoBack={handleGoBack} />
               <GamePage characters={characters} addWin={addWin} handleGoBack={handleGoBack}/>
               <Footer />
             </>

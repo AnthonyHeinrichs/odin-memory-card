@@ -1,6 +1,5 @@
 import './styles/ResultPage.css';
 import futuramaGameBackground from '/futurama-game-background.webm';
-import Leaderboard from '../components/Leaderboard';
 
 function ResultPage({result, handleGoBack}) {
   return ( 
@@ -14,7 +13,6 @@ function ResultPage({result, handleGoBack}) {
       <div className="again_btn_container">
         <button onClick={handleGoBack} className="again_btn">Play again?</button>
       </div>
-      <Leaderboard />
     </>
   );
 }
