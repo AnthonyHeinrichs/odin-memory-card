@@ -19,6 +19,15 @@ async function addFakeScores() {
     { name: 'Player3', score: 1 },
     { name: 'Player4', score: 3 },
     { name: 'Player5', score: 1 },
+    { name: 'Player6', score: 1 },
+    { name: 'Player7', score: 5 },
+    { name: 'Player8', score: 1 },
+    { name: 'Player9', score: 3 },
+    { name: 'Player10', score: 8 },
+    { name: 'Player11', score: 2 },
+    { name: 'Player12', score: 7 },
+    { name: 'Player13', score: 3 },
+    { name: 'Player14', score: 5 },
   ];
 
   try {
