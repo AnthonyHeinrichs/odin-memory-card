@@ -1,6 +1,10 @@
+import { useState } from 'react';
 import './styles/Leaderboard.css';
+import ScoreForm from './ScoreForm';
 
-const Leaderboard = ({ scores, leaderboardVisibility }) => {
+const Leaderboard = ({ scores, wins, leaderboardVisibility }) => {
+  const [showScoreForm, setShowScoreForm] = useState(false);
+
   let scoresArray = scores.scores || [];
 
   let sortedScores = scoresArray.sort((a, b) => b.score - a.score);
@@ -10,6 +14,10 @@ const Leaderboard = ({ scores, leaderboardVisibility }) => {
 
   if (sortedScores.length > 5) {
     bottomFive = sortedScores.slice(-5);
+  }
+
+  const formVisibility = () => {
+    setShowScoreForm(prevState => !prevState);
   }
 
   return (
@@ -42,6 +50,10 @@ const Leaderboard = ({ scores, leaderboardVisibility }) => {
             ))}
           </div>
         </div>
+        <div className="btn_container">
+          { wins > 0 && <button className='submit_btn' onClick={ () => formVisibility()}>Submit your score of {wins}</button> }
+        </div>
+        { showScoreForm && <ScoreForm formVisibility={formVisibility} wins={wins}/>}
       </div>
     </div>
   );

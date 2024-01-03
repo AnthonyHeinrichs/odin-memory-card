@@ -14,7 +14,8 @@ function App() {
   const [leaderboardScores, setLeaderboardScores] = useState([]);
   const [characters, setCharacters] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [hardWins, setHardWins] = useState(storedWins);
+  // const [hardWins, setHardWins] = useState(storedWins);
+  const [hardWins, setHardWins] = useState(5);
   const [gameStarted, setGameStarted] = useState(false);
 
   // Fetching our character data from a Futurama api
@@ -53,8 +54,6 @@ function App() {
     fetchFuturamaData();
     fetchLeaderboardData();
   }, []);
-
-  console.log(leaderboardScores);
 
   useEffect(() => {
     // Saving our wins to local storage in case user refreshes app

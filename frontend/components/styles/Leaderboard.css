@@ -6,7 +6,7 @@
   margin-top: 12px;
   display: flex;
   background: rgba(10, 2, 26, 0.986);
-  border-radius: 25px;
+  border-radius: 15px;
   border: solid black;
   justify-content: center;
 }
@@ -41,6 +41,24 @@
 .leaderboard_description {
   text-align: center;
   color: white;
+  margin-top: 12px;
+  margin-bottom: 24px;
+}
+
+.btn_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit_btn {
+  background: rgb(56, 4, 56);
+  color: white;
+  font-weight: 700;
+  border: solid 1px purple;
+  border-radius: 5px;
+  padding: 8px;
   margin-bottom: 24px;
 }
 
