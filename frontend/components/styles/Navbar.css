@@ -1,4 +1,4 @@
-.navbar_container {
+.nav_container {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -6,7 +6,7 @@
 }
 
 .futurama_icon {
-  width: 120px;
+  width: calc(4vw + 32px);
   margin-top: 12px;
   margin-left: 24px;
   cursor: pointer;
@@ -18,11 +18,27 @@
 }
 
 .game_wins {
-  margin-right: 24px;
-  margin-top: 24px;
-  width: 150px;
+  max-width: 150px;
+  margin-top: 12px;
   background: #e5e5e5;
   border-radius: 10px;
   font-family: 'Nunito';
+  font-size: calc(0.4vw + 8px);
   padding: 5px 8px 5px 8px;
+}
+
+.leaderboard_btn {
+  font-family: 'Nunito';
+  color: white;
+  background: #140033;
+  margin-top: 12px;
+  margin-right: 12px;
+  font-size: calc(0.4vw + 8px);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px;
+  width: calc(3vw + 62px);
+  min-width: 72px;
+  border-radius: 5px;
+  border: none;
 }

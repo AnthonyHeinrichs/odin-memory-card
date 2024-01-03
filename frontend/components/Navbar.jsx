@@ -11,12 +11,10 @@ function Navbar({ wins, handleGoBack, scores }) {
   }
 
   return (
-    <div className="navbar_container">
-      <img onClick={handleGoBack} className="futurama_icon" src={FuturamaIcon} alt="icon" />
-      <div>
-        <p className="game_wins" >Hard win streak: {wins}</p>
-        <button onClick={() => leaderboardVisibility()}>Leaderboard</button>
-      </div>
+    <div className='nav_container'>
+      <img onClick={handleGoBack} className='futurama_icon' src={FuturamaIcon} alt='icon' />
+      <p className='game_wins' >Hard win streak: {wins}</p>
+      <button onClick={() => leaderboardVisibility()} className='leaderboard_btn'>Leaderboard</button>
       { showLeaderboard &&  <Leaderboard scores={scores} leaderboardVisibility={leaderboardVisibility}/> }
     </div>
   );
