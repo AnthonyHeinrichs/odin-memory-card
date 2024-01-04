@@ -51,7 +51,7 @@ const Leaderboard = ({ scores, wins, leaderboardVisibility }) => {
           </div>
         </div>
         <div className="btn_container">
-          { wins > 0 && <button className='submit_btn' onClick={ () => formVisibility()}>Submit your score of {wins}</button> }
+          { wins > 0 && <button className='submit_btn' onClick={ () => formVisibility()}>Add your score</button> }
         </div>
         { showScoreForm && <ScoreForm formVisibility={formVisibility} wins={wins}/>}
       </div>

@@ -9,6 +9,7 @@
   border-radius: 15px;
   border: solid black;
   justify-content: center;
+  min-height: 400px;
 }
 
 .leaderboard_content {

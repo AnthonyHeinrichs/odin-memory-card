@@ -1,4 +1,5 @@
 const { Router } = require('express');
+const bodyParser = require('body-parser');
 const Score = require('../models/score');
 const router = Router();
 
@@ -18,7 +19,10 @@ const verifyApiKey = (req, res, next) => {
   next();
 };
 
+router.use(bodyParser.json());
+
 router.post('/scores', verifyApiKey, async (req, res) => {
+
   try {
     const { name, score } = req.body;
 
