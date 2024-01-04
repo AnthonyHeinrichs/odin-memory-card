@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './styles/ScoreForm.css';
 
-const ScoreForm = ({ formVisibility, wins }) => {
+const ScoreForm = ({ formVisibility, wins, fetchLeaderboardData }) => {
   const [formData, setFormData] = useState({
     name: '',
   });
@@ -36,11 +36,14 @@ const ScoreForm = ({ formVisibility, wins }) => {
       }
 
       const data = await response.json();
-      console.log(data); 
+
+      fetchLeaderboardData(true);
       
     } catch (error) {
       console.error(error);
     }
+
+    formVisibility();
   };
 
   return (

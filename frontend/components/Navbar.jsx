@@ -3,7 +3,7 @@ import FuturamaIcon from '/icon.png';
 import Leaderboard from './Leaderboard';
 import './styles/Navbar.css';
 
-function Navbar({ wins, handleGoBack, scores }) {
+function Navbar({ wins, handleGoBack, scores, fetchLeaderboardData }) {
   const [showLeaderboard, setShowLeaderboard] = useState(false);
 
   const leaderboardVisibility = () => {
@@ -15,7 +15,7 @@ function Navbar({ wins, handleGoBack, scores }) {
       <img onClick={handleGoBack} className='futurama_icon' src={FuturamaIcon} alt='icon' />
       <p className='game_wins' >Hard win streak: {wins}</p>
       <button onClick={() => leaderboardVisibility()} className='leaderboard_btn'>Leaderboard</button>
-      { showLeaderboard &&  <Leaderboard scores={scores} wins={wins} leaderboardVisibility={leaderboardVisibility}/> }
+      { showLeaderboard &&  <Leaderboard scores={scores} wins={wins} leaderboardVisibility={leaderboardVisibility} fetchLeaderboardData={fetchLeaderboardData}/> }
     </div>
   );
 }

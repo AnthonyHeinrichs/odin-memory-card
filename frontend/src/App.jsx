@@ -14,8 +14,7 @@ function App() {
   const [leaderboardScores, setLeaderboardScores] = useState([]);
   const [characters, setCharacters] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  // const [hardWins, setHardWins] = useState(storedWins);
-  const [hardWins, setHardWins] = useState(5);
+  const [hardWins, setHardWins] = useState(storedWins);
   const [gameStarted, setGameStarted] = useState(false);
 
   // Fetching our character data from a Futurama api
@@ -32,7 +31,7 @@ function App() {
   };
 
   // Fetching our leaderboard data from backend API
-  const fetchLeaderboardData = async () => {
+  const fetchLeaderboardData = async (newScoreAdded) => {
     
     const apiKey = import.meta.env.VITE_API_KEY;
 
@@ -46,6 +45,10 @@ function App() {
       setLeaderboardScores(json);
     } catch (error) {
       console.error('Error fetching highscore data:', error);
+    }
+
+    if (newScoreAdded) {
+      setHardWins(0);
     }
   };
 
@@ -101,7 +104,7 @@ function App() {
 
   return (
     <div>
-      <Navbar wins={hardWins}  handleGoBack={handleGoBack} scores={leaderboardScores}/>
+      <Navbar wins={hardWins}  handleGoBack={handleGoBack} scores={leaderboardScores} fetchLeaderboardData={fetchLeaderboardData}/>
       {isLoading && (
         <LoadingPage />
       )}

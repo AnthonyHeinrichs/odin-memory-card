@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './styles/Leaderboard.css';
 import ScoreForm from './ScoreForm';
 
-const Leaderboard = ({ scores, wins, leaderboardVisibility }) => {
+const Leaderboard = ({ scores, wins, leaderboardVisibility, fetchLeaderboardData }) => {
   const [showScoreForm, setShowScoreForm] = useState(false);
 
   let scoresArray = scores.scores || [];
@@ -53,7 +53,7 @@ const Leaderboard = ({ scores, wins, leaderboardVisibility }) => {
         <div className="btn_container">
           { wins > 0 && <button className='submit_btn' onClick={ () => formVisibility()}>Add your score</button> }
         </div>
-        { showScoreForm && <ScoreForm formVisibility={formVisibility} wins={wins}/>}
+        { showScoreForm && <ScoreForm formVisibility={formVisibility} wins={wins} fetchLeaderboardData={fetchLeaderboardData} />}
       </div>
     </div>
   );
