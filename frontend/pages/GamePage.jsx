@@ -8,6 +8,8 @@ const GamePage = ({ characters, addWin, handleGoBack }) => {
   const [userResult, setUserResult] = useState('');
   const [mixing, setMixing] = useState(false);
 
+  console.log(characters);
+
   // Shuffling the characters array passed
   const shuffle = useCallback((array) => {
     let currentIndex = array.length,
@@ -79,10 +81,10 @@ const GamePage = ({ characters, addWin, handleGoBack }) => {
               <CharacterCard
                 key={character.id}
                 characterName={
-                  character.name.last ? character.name.last : character.name.first
+                  character.name.common
                 }
                 characterImage={character.images.main}
-                characterQuotes={character.sayings}
+                characterQuotes={character.quotes}
                 cardFlipped={mixing}
                 onClick={() => handleCharacterClick(character.id)}
               />

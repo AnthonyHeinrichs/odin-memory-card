@@ -20,7 +20,7 @@ function App() {
   // Fetching our character data from a Futurama api
   const fetchFuturamaData = async () => {
     try {
-      const resp = await fetch('https://api.sampleapis.com/futurama/characters');
+      const resp = await fetch('http://localhost:5000/api/characters');
       const json = await resp.json();
       setOriginalCharacters(json);
       setIsLoading(false);

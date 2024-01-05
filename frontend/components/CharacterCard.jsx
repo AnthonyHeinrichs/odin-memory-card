@@ -2,8 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import './styles/CharacterCard.css';
 
 const CharacterCard = ({characterName, characterImage, characterQuotes, cardFlipped, onClick}) => {
-  const shortQuotes = characterQuotes.filter(characterQuotes => characterQuotes.length <= 50);
-  const randomCharacterQuote = shortQuotes[Math.floor(Math.random() * shortQuotes.length)];
+  const randomCharacterQuote = characterQuotes[Math.floor(Math.random() * characterQuotes.length)];
 
   let bounds;
   const inputRef = useRef();
