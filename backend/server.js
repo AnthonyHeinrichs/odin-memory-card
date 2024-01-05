@@ -1,4 +1,3 @@
-// app.js
 const express = require('express');
 const cors = require('cors');
 const mongoose = require("mongoose");
@@ -14,7 +13,8 @@ const app = express();
 app.use(cors());
 
 // Bringing in route(s)
-app.use('/api/leaderboard', routes);
+app.use('/api/leaderboard', routes.leaderboard);
+app.use('/api/characters', routes.characters);
 
 // Set up mongoose connection
 const mongoDb = process.env.MONGODB_URI;
