@@ -1,46 +1,158 @@
+const baseURL = 'http://localhost:5000'
+
 module.exports = [
   {
-    "name": { "first": "Philip", "middle": "Jay", "last": "Fry" },
-    "images": { "main": "https://static.wikia.nocookie.net/enfuturama/images/4/4c/Character_Fry.png/revision/latest?cb=20221005104553"},
+    "name": { "first": "Philip", "middle": "Jay", "last": "Fry", "common": "Fry"  },
+    "images": { "main": `${baseURL}/images/fry.webp`},
+    "quotes": [
+      "Shut up and take my money!",
+      "I'm not lazy. I'm just highly motivated to do nothing.",
+      "I can't wait til I'm old enough to feel ways about stuff.",
+      "People said I was dumb, but I proved them.",
+      "What smells like blue?",
+      "I'm walking on sunshine, wooah! And don't it feel good?",
+      "I'm not smart enough to lie.",
+      "No I'm... doesn't!",
+      "Help! I can't swim in honey as far as I know!",
+      "What part of that do I understand?"
+    ],
   },
   {
-    "name": { "first": "Turanga", "middle": "", "last": "Leela" },
-    "images": { "main": ""},
+    "name": { "first": "Turanga", "middle": "", "last": "Leela", "common": "Leela" },
+    "images": { "main": `${baseURL}/images/leela.webp`},
+    "quotes": [
+      "I have one eye, and my eye has a secret. My secret eye!",
+      "Oh lord hes made of wood",
+      "Hyah!",
+      "This is officer 1-B D-I",
+      "Why do we have to resort to non-violence?",
+      "My life isn't as glamorous as my online profiles make it seem",
+      "Ow! Fire hot!",
+      "My friends always die if I'm not there to save them."
+    ],
   },
   {
-    "name": { "first": "Bender", "middle": "Bending", "last": "Rodriguez" },
-    "images": { "main": ""},
+    "name": { "first": "Bender", "middle": "Bending", "last": "Rodriguez", "common": "Bender" },
+    "images": { "main": `${baseURL}/images/bender.webp`},
+    "quotes": [
+      "Oh, and bring my toboggan.",
+      "Now I have to float for all eternity with barely any swag!",
+      "Let's go already!",
+      "This is the worst kind of discrimination, the kind against me.",
+      "I'm 40% dolomite",
+      "How about you, you're my third choice.",
+    ],
   },
   {
-    "name": { "first": "Amy", "middle": "", "last": "Wong" },
-    "images": { "main": ""},
+    "name": { "first": "Amy", "middle": "", "last": "Wong", "common": "Amy" },
+    "images": { "main": `${baseURL}/images/amy.webp`},
+    "quotes": [
+      "Could it have been flavour blasted?",
+      "This is why you never see a poor person with millions of dollars",
+      "Spluh!",
+      "What's rent?",
+      "Nice boots. Do they come in women's' sizes?",
+      "What's causing it? Is it my outfit?",
+    ],
   },
   {
-    "name": { "first": "Hermes", "middle": "", "last": "Conrad" },
-    "images": { "main": ""},
+    "name": { "first": "Hermes", "middle": "", "last": "Conrad", "common": "Hermes" },
+    "images": { "main": `${baseURL}/images/hermes.webp`},
+    "quotes": [
+      "Tally me banana!",
+      "We're talking about lots of things!",
+      "Sweet something of someplace.",
+      "Requisition me a beat!",
+      "Sweet file not found of Puget Sound!",
+      "Addition has never solved anything, man!",
+    ],
   },
   {
-    "name": { "first": "Professor", "middle": "Hubert", "last": "Farnsworth" },
-    "images": { "main": "https://static.wikia.nocookie.net/enfuturama/images/3/35/Character_The_Professor.png/revision/latest?cb=20221005104541"},
+    "name": { "first": "Professor", "middle": "Hubert", "last": "Farnsworth", "common": "Professor" },
+    "images": { "main": `${baseURL}/images/professor.webp`},
+    "quotes": [
+      "If anyone needs me, I'll be in the angry dome.",
+      "I'm sciencing as fast as I can.",
+      "Good news, everyone!",
+      "I can wire anything directly into anything! I'm the professor!",
+      "With my last breath I curse Zoidberg!",
+      "No fair! You changed the outcome by measuring it.",
+      "Ocean Madness is no reason for Ocean Rudeness",
+    ],
   },
   {
-    "name": { "first": "Zapp", "middle": "Brannigan", "last": "" },
-    "images": { "main": ""},
+    "name": { "first": "Zapp", "middle": "Brannigan", "last": "", "common": "Zapp" },
+    "images": { "main": `${baseURL}/images/zapp.webp`},
+    "quotes": [
+      "Lower",
+      "Too low!",
+      "I am the man with no name. Zapp Brannigan at your service.",
+      "Kif, were under attack and the weddings off. Return fire and the cake.",
+      "I don't pretend to understand Brannigan's Law; I merely enforce it.",
+      "She's built like a steakhouse, but she handles like a bistro.",
+      "Fire all weapons and open a hailing frequency for my victory yodel.",
+      "When I'm in command, son, every mission is a suicide mission."
+    ],
   },
   {
-    "name": { "first": "Kif", "middle": "", "last": "Kroker" },
-    "images": { "main": ""},
+    "name": { "first": "Kif", "middle": "", "last": "Kroker", "common": "kif" },
+    "images": { "main": `${baseURL}/images/kif.webp`},
+    "quotes": [
+      "And mix these mixed nuts! I see two almonds touching!",
+      "Precious hamburgers?",
+      "That's all the resolution we have, making it bigger doesn't make it clearer.",
+      "It is not uncharted, you lost the chart.",
+      "Ughh.",
+      "You can't return ice cream cakes!",
+      "You can't sue the military",
+      "Nnngff! Guh. fff! Mmmnuh.. uh..."
+    ],
   },
   {
-    "name": { "first": "Nibbler", "middle": "", "last": "" },
-    "images": { "main": ""},
+    "name": { "first": "Nibbler", "middle": "", "last": "", "common": "Nibbler" },
+    "images": { "main": `${baseURL}/images/nibbler.webp`},
+    "quotes": [
+      "Sometimes I fear we are cute.",
+      "I hereby place an order for one cheese pizza. I. C. Weiner.",
+      "I keep telling you that is my real naval uniform!",
+      "In a thousand years, I'll get right on it!",
+      "I bear many receipts for reimbursement.",
+      "Everyone out of the universe, quick!"
+    ],
   },
   {
-    "name": { "first": "Zoidberg", "middle": "", "last": "John" },
-    "images": { "main": ""},
+    "name": { "first": "John", "middle": "A.", "last": "Zoidberg", "common": "Zoidberg" },
+    "images": { "main": `${baseURL}/images/zoidberg.webp`},
+    "quotes": [
+      "What? My mother was a saint! Get out!!",
+      "That's normal. Next patient!",
+      "Friends, help! A guinea pig tricked me!",
+      "Wait. Not dead, the other thing.",
+      "Switch bodies? I don't see why not. I also don't see why.",
+      "Hooray! People are paying attention to me!"
+    ],
   },
   {
-    "name": { "first": "Scruffy", "middle": "", "last": "" },
-    "images": { "main": ""},
+    "name": { "first": "Scruffy", "middle": "", "last": "", "common": "Scruffy" },
+    "images": { "main": `${baseURL}/images/scruffy.webp`},
+    "quotes": [
+      "I'm Scruffy... the Janitor.",
+      "Scruffy's work here is done.",
+      "Don't thank me. Thank the ladder.",
+      "Scruffy's gonna die they way he lived",
+      "I've never seen him so down, or ever before",
+      "Ohhh marmalade..."
+    ],
+  },
+  {
+    "name": { "first": "Carol", "middle": "", "last": "Miller", "common": "Mom" },
+    "images": { "main": `${baseURL}/images/mom.webp`},
+    "quotes": [
+      "We’re owl exterminators.",
+      "Now THAT'S walkin' around money!",
+      "You call that a pressed ham?",
+      "An idiot like you is correct!",
+      "What?! Nobody rips off my kids but me!",
+    ],
   },
 ];
