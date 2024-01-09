@@ -8,8 +8,6 @@ const GamePage = ({ characters, addWin, handleGoBack }) => {
   const [userResult, setUserResult] = useState('');
   const [mixing, setMixing] = useState(false);
 
-  console.log(characters);
-
   // Shuffling the characters array passed
   const shuffle = useCallback((array) => {
     let currentIndex = array.length,

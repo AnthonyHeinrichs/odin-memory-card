@@ -17,10 +17,16 @@ function App() {
   const [hardWins, setHardWins] = useState(storedWins);
   const [gameStarted, setGameStarted] = useState(false);
 
+  const apiKey = import.meta.env.VITE_API_KEY;
+
   // Fetching our character data from a Futurama api
   const fetchFuturamaData = async () => {
     try {
-      const resp = await fetch('http://localhost:5000/api/characters');
+      const resp = await fetch('http://localhost:5000/api/characters', {
+        headers: {
+        'X-API-Key': apiKey,
+        },
+      });
       const json = await resp.json();
       setOriginalCharacters(json);
       setIsLoading(false);
@@ -32,8 +38,6 @@ function App() {
 
   // Fetching our leaderboard data from backend API
   const fetchLeaderboardData = async (newScoreAdded) => {
-    
-    const apiKey = import.meta.env.VITE_API_KEY;
 
     try {
       const resp = await fetch('http://localhost:5000/api/leaderboard/scores', {

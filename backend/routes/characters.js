@@ -9,17 +9,17 @@ require('dotenv').config()
 const API_KEY = process.env.API_KEY;
 
 // Middleware to verify API key
-// const verifyApiKey = (req, res, next) => {
-//   const apiKey = req.header('X-API-Key');
+const verifyApiKey = (req, res, next) => {
+  const apiKey = req.header('X-API-Key');
 
-//   if (!apiKey || apiKey !== API_KEY) {
-//     return res.status(403).json({ error: 'Forbidden - Invalid API key' });
-//   }
+  if (!apiKey || apiKey !== API_KEY) {
+    return res.status(403).json({ error: 'Forbidden - Invalid API key' });
+  }
 
-//   next();
-// };
+  next();
+};
 
-router.get('/', async (req, res) => {
+router.get('/', verifyApiKey, async (req, res) => {
   try {
     res.json(charactersData);
   } catch (error) {
