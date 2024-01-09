@@ -19,7 +19,7 @@ const ScoreForm = ({ formVisibility, wins, fetchLeaderboardData }) => {
     const apiKey = import.meta.env.VITE_API_KEY;
 
     try {
-      const response = await fetch('http://localhost:5000/api/leaderboard/scores', {
+      const response = await fetch('https://odin-memory-card-backend.vercel.app/api/leaderboard/scores', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
