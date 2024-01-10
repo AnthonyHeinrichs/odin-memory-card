@@ -13,7 +13,7 @@ function Navbar({ wins, handleGoBack, scores, fetchLeaderboardData }) {
   return (
     <div className='nav_container'>
       <img onClick={handleGoBack} className='futurama_icon' src={FuturamaIcon} alt='icon' />
-      <p className='game_wins' >Hard win streak: {wins}</p>
+      { wins > 0 && <p className='game_wins' >Hard win streak: {wins}</p> }
       <button onClick={() => leaderboardVisibility()} className='leaderboard_btn'>Leaderboard</button>
       { showLeaderboard &&  <Leaderboard scores={scores} wins={wins} leaderboardVisibility={leaderboardVisibility} fetchLeaderboardData={fetchLeaderboardData}/> }
     </div>

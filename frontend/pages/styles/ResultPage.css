@@ -1,4 +1,4 @@
-.loser_text_container, .winner_text_container, .again_btn_container {
+.results_text_container, .again_btn_container {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -6,8 +6,20 @@
   align-items: center;
 }
 
+.results_text_container {
+  font-family: 'Nunito';
+  font-size: calc(2vw + 24px);
+  margin-top: 8px;
+}
+
+.results_gif {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+}
+
 .again_btn {
-  margin-bottom: 24px;
+  margin: 24px;
   font-family: 'Nunito';
   color: white;
   background: #140033;

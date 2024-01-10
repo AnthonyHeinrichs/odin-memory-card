@@ -22,7 +22,7 @@ function App() {
   // Fetching our character data from a Futurama api
   const fetchFuturamaData = async () => {
     try {
-      const resp = await fetch('https://odin-memory-card-backend.vercel.app/api/characters', {
+      const resp = await fetch('http://localhost:5000/api/characters', {
         headers: {
         'X-API-Key': apiKey,
         },
@@ -40,7 +40,7 @@ function App() {
   const fetchLeaderboardData = async (newScoreAdded) => {
 
     try {
-      const resp = await fetch('https://odin-memory-card-backend.vercel.app/api/leaderboard/scores', {
+      const resp = await fetch('http://localhost:5000/api/leaderboard/scores', {
         headers: {
           'X-API-Key': apiKey,
         },
@@ -125,17 +125,16 @@ function App() {
                   <button className='difficulty_btn' onClick={() => handlePlayGame(12)}>Hard</button>
                 </div>
               </div>
-              <Footer />
             </>
           )}
           {gameStarted && characters.length > 0 && (
             <>
               <GamePage characters={characters} addWin={addWin} handleGoBack={handleGoBack}/>
-              <Footer />
             </>
           )}
         </>
       )}
+      <Footer />
     </div>
   );
 }

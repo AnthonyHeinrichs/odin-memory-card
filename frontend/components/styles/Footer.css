@@ -63,3 +63,16 @@
   font-size: calc(0.25vw + 12px);
   color: #140033;
 }
+
+.copy_container {
+  padding: 10px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.github {
+  margin-left: 4px;
+  height: 18px;
+}

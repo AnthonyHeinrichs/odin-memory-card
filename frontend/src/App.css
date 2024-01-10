@@ -15,8 +15,8 @@
 }
 
 .game_title_img {
-  max-width: 750px;
-  width: 75vw;
+  max-width: 600px;
+  width: 70vw;
   margin-top: 24px;
   animation: grow 2s alternate-reverse infinite;
 }
