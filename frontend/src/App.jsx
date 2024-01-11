@@ -22,7 +22,7 @@ function App() {
   // Fetching our character data from a Futurama api
   const fetchFuturamaData = async () => {
     try {
-      const resp = await fetch('http://localhost:5000/api/characters', {
+      const resp = await fetch('https://odin-memory-card-backend.vercel.app/api/characters', {
         headers: {
         'X-API-Key': apiKey,
         },
@@ -40,7 +40,7 @@ function App() {
   const fetchLeaderboardData = async (newScoreAdded) => {
 
     try {
-      const resp = await fetch('http://localhost:5000/api/leaderboard/scores', {
+      const resp = await fetch('https://odin-memory-card-backend.vercel.app/api/leaderboard/scores', {
         headers: {
           'X-API-Key': apiKey,
         },
@@ -108,32 +108,34 @@ function App() {
 
   return (
     <div>
-      <Navbar wins={hardWins}  handleGoBack={handleGoBack} scores={leaderboardScores} fetchLeaderboardData={fetchLeaderboardData}/>
-      {isLoading && (
-        <LoadingPage />
-      )}
-      {!isLoading && (
-        <>
-          {!gameStarted && (
-            <>
-              <div className="main_page">
-                <img src={gameTitle} alt="futurama title" className='game_title_img'/>
-                <h2 className='title_description'>Memory Game</h2>
-                <div className='difficulty_selection_btns'>
-                  <button className='difficulty_btn' onClick={() => handlePlayGame(4)}>Easy</button>
-                  <button className='difficulty_btn' onClick={() => handlePlayGame(8)}>Medium</button>
-                  <button className='difficulty_btn' onClick={() => handlePlayGame(12)}>Hard</button>
+      <div className='content'>
+        <Navbar wins={hardWins}  handleGoBack={handleGoBack} scores={leaderboardScores} fetchLeaderboardData={fetchLeaderboardData}/>
+        {isLoading && (
+          <LoadingPage />
+        )}
+        {!isLoading && (
+          <>
+            {!gameStarted && (
+              <>
+                <div className="main_page">
+                  <img src={gameTitle} alt="futurama title" className='game_title_img'/>
+                  <h2 className='title_description'>Memory Game</h2>
+                  <div className='difficulty_selection_btns'>
+                    <button className='difficulty_btn' onClick={() => handlePlayGame(4)}>Easy</button>
+                    <button className='difficulty_btn' onClick={() => handlePlayGame(8)}>Medium</button>
+                    <button className='difficulty_btn' onClick={() => handlePlayGame(12)}>Hard</button>
+                  </div>
                 </div>
-              </div>
-            </>
-          )}
-          {gameStarted && characters.length > 0 && (
-            <>
-              <GamePage characters={characters} addWin={addWin} handleGoBack={handleGoBack}/>
-            </>
-          )}
-        </>
-      )}
+              </>
+            )}
+            {gameStarted && characters.length > 0 && (
+              <>
+                <GamePage characters={characters} addWin={addWin} handleGoBack={handleGoBack}/>
+              </>
+            )}
+          </>
+        )}
+      </div>
       <Footer />
     </div>
   );

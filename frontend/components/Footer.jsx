@@ -33,7 +33,7 @@ function Footer() {
         </div>
       </div>
       <div className="copy_container">
-        <p>Copyright © {year} AnthonyHeinrichs</p>
+        <p>Copyright © {year} Anthony Heinrichs</p>
           <a href="https://github.com/AnthonyHeinrichs" target="_blank">
           <img className="github" src="/github.svg" alt="github"></img>
         </a>

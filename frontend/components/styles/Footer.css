@@ -46,7 +46,7 @@
 .help {
   text-align: center;
   margin-right: 24px;
-  margin-bottom: 24px;
+  margin-bottom: 36px;
 }
 
 .help_img {
@@ -65,11 +65,14 @@
 }
 
 .copy_container {
-  padding: 10px;
-  text-align: center;
-  position: fixed;
+  margin-top: 24px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   bottom: 0;
   width: 100%;
+  overflow: hidden;
 }
 
 .github {
